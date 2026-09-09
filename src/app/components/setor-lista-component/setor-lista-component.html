@@ -1,0 +1,19 @@
+
+<h1>Lista de Setores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Setor</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (setor of listaSetores(); track setor.idsetor) {
+      <tr>
+        <td>{{ setor.idsetor }}</td>
+        <td>{{ setor.setor }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
