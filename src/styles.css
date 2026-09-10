@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --cor-primaria: #30426b;
+  --cor-primaria-hover: #495062;
+
+  --cor-texto: #1e293b;
+  --cor-texto-suave: #64748b;
+  --cor-texto-forte: #0f172a;
+
+  --cor-fundo: #ffffff;
+  --cor-fundo-suave: #f8fafc;
+
+  --cor-borda: #e2e8f0;
+  --cor-borda-suave: #f1f5f9;
+  --cor-borda-hover: #94a3b8;
+
+  --fonte-padrao: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --raio-borda: 8px;
+  --raio-borda-pequeno: 6px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-padrao);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo-suave);
+}
