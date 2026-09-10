@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SetorService } from '../../services/setor-service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,11 +17,13 @@ export class SetorComponent {
   editar = false
   idsetor = 0
 
+   @ViewChild(SetorListaComponent) listaComponent!: SetorListaComponent;
+
   constructor(
     private setorService: SetorService,
     private route: ActivatedRoute,
     private router: Router,
-    private cdr: ChangeDetectorRef 
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -57,7 +59,9 @@ carregarSetor(id: number) {
       this.setorService.criarSetor(objSetor)
         .subscribe({
           next: () => {
-            this.router.navigate(['/SETOR-LISTA'])
+            this.listaComponent.listarSetores()
+            this.setor = ''
+              this.cdr.detectChanges()  
           },
           error: (erro) => {
             console.log('Erro ao criar setor', erro)
@@ -67,13 +71,16 @@ carregarSetor(id: number) {
       this.setorService.atualizarSetor(this.idsetor, objSetor)
         .subscribe({
           next: () => {
-            this.router.navigate(['/SETOR-LISTA'])
+             this.listaComponent.listarSetores()
+             this.setor = ''
+             this.editar = false
+              this.cdr.detectChanges()
           },
           error: (erro) => {
             console.log('Erro ao atualizar setor', erro)
           }
 
-          
+
         })
     }
   }

@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  font-family: var(--fonte-padrao);
+  color: var(--cor-texto);
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-texto-forte);
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.75rem;
+}
+
+input[type="text"] {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  margin-right: 0.5rem;
+  min-width: 240px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-borda-pequeno);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  background-color: var(--cor-borda-suave);
+  border-color: var(--cor-borda-hover);
+}
+
+/* Botão principal (Salvar) tem destaque na cor primária */
+button:first-of-type {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #ffffff;
+}
+
+button:first-of-type:hover {
+  background-color: var(--cor-primaria-hover);
+  border-color: var(--cor-primaria-hover);
+}
