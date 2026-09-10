@@ -1,0 +1,62 @@
+
+<h1>Lista de Setores</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Setor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (setor of listaSetores(); track setor.idsetor) {
+      <tr>
+        <td>
+          <button (click)="toggleExpand(setor.idsetor)">
+            {{ idSetorExpandido() === setor.idsetor ? '▼' : '▶' }}
+          </button>
+        </td>
+        <td>{{ setor.idsetor }}</td>
+        <td>{{ setor.setor }}</td>
+        <td>
+          <button (click)="editarSetor(setor)">Editar</button>
+          <button (click)="excluirSetor(setor)">Excluir</button>
+        </td>
+      </tr>
+      @if (idSetorExpandido() === setor.idsetor) {
+        <tr>
+          <td colspan="4">
+            <strong>Produtos deste setor:</strong>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Produto</th>
+                  <th>Valor</th>
+                  <th>Estoque</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (produto of produtosDoSetor(setor.idsetor); track produto.idproduto) {
+                  <tr>
+                    <td>{{ produto.idproduto }}</td>
+                    <td>{{ produto.produto }}</td>
+                    <td>{{ produto.valor_unitario }}</td>
+                    <td>{{ produto.estoque }}</td>
+                    <td>
+                      <button (click)="excluirProduto(produto)">Excluir</button>
+                    </td>
+                  </tr>
+                } @empty {
+                  <tr><td colspan="5">Nenhum produto neste setor.</td></tr>
+                }
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>
