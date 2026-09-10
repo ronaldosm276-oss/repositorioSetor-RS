@@ -1,5 +1,12 @@
-
-<h1>...?</h1>
+<h1>{{ editar ? 'Editar Setor' : 'Novo Setor' }}</h1>
 
 <label for="setor">SETOR</label>
-<input type="text">
+<input type="text" id="setor" [(ngModel)]="setor" name="setor">
+
+<button (click)="salvar()">Salvar</button>
+
+@if (editar) {
+  <button (click)="cancelarEdicao()">Novo Setor</button>
+}
+
+<app-setor-lista-component></app-setor-lista-component>
